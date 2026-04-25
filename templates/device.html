@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="UTF-8">
+    <title>{{ device.name }} - History</title>
+    
+</head>
+
+<body>
+    
+    <p><a href="/"> &larr; Back to dashboard </a></p>
+
+    <h1>{{ device.name }}</h1>
+
+    <p>IP: {{ device.ip_address }}</p>
+
+    <p>
+        Uptime (last {{ checks|length }} checks):
+        {% if uptime_pct is not none %}
+            <strong>{{ uptime_pct }}%</strong>
+        {% else %}
+            <em>no checks yet</em>
+        {% endif %}
+    </p>
+    
+    <table border="1">
+        <tr>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+        {% for c in checks %}
+        <tr>
+            <td>{{ c.checked_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td style="color: {% if c.is_up %}limegreen{% else %} red {% endif %}; font-weight: bold">
+                {{ 'UP' if c.is_up else 'DOWN' }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    
+</body>
+
+</html>

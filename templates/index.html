@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Project Alpha Dashboard</title>
+</head>
+<body>
+<h1>Project Alpha Dashboard</h1>
+
+<!-- Form used to add new devices to the monitor -->
+<form method="POST" action="/add-device">
+    <input type="text" name="name" placeholder="Device Name" required>
+    <input type="text" name="ip_address" placeholder="IP Address" required>
+    <button type="submit">Add Device</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>IP_Address</th>
+        <th>Enabled</th>
+        <th>Status</th>
+    </tr>
+    {% for device in devices %}
+    <tr>
+        <td>{{ device.id }}</td>
+        <td><a href="/devices/{{ device.id }}">{{ device.name }}</a></td>
+        <td>{{ device.ip_address }}</td>
+        <td>{{ device.enabled }}</td>
+        <td>
+            <!-- Latest check result is attached in the home route -->
+            {% if device.last_up is not none %}
+            <span style="color: {% if device.last_up %}limegreen{% else %}red{% endif %}; font-weight: bold;">
+                    {{ 'UP' if device.last_up else 'DOWN' }}
+                </span>
+            <br><small>
+            {{ device.last_checked.strftime('%H:%M:%S') }}
+        </small>
+            {% else %}
+            <em>Pending</em>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
