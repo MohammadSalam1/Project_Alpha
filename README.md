@@ -39,7 +39,7 @@ Requires **Python 3.11+** on **Windows** (the ping logic uses the Windows
 
 ```bash
 git clone https://github.com/MohammadSalam1/Project-Alpha.git
-cd project-alpha
+cd Project-Alpha
 
 python -m venv .venv
 .venv\Scripts\activate
