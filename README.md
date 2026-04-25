@@ -96,6 +96,4 @@ project-alpha/
 - [ ] Dockerfile for one-command deploy
 - [ ] Periodic cleanup of old `checks` rows
 
-## License
 
-MIT
