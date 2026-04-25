@@ -38,7 +38,7 @@ Requires **Python 3.11+** on **Windows** (the ping logic uses the Windows
 `ping -n 1` command — see *Known limitations* for cross-platform notes).
 
 ```bash
-git clone https://github.com/<your-username>/project-alpha.git
+git clone https://github.com/MohammadSalam1/Project_Alpha.git
 cd project-alpha
 
 python -m venv .venv
