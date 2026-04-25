@@ -1,15 +1,17 @@
-﻿# Default ignored files
-/shelf/
-/workspace.xml
-# Rider ignored files
-/contentModel.xml
-/modules.xml
-/.idea.Project_Alpha.iml
-/projectSettingsUpdater.xml
-# Ignored default folder with query files
-/queries/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
-# Editor-based HTTP Client requests
-/httpRequests/
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Database (local data, not source)
+alpha.db
+*.db
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
